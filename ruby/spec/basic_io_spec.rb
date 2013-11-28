@@ -5,7 +5,8 @@ require './src/basic_io.rb'
 describe BasicIO do
   before(:each) do
     @stdin = StringIO.new
-    @io = BasicIO.new(@stdin)
+    stdout = StringIO.new
+    @io = BasicIO.new(@stdin, stdout)
     @player = (Player.new(0, Connect4::RED))
   end
 

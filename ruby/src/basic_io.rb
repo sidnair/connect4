@@ -1,32 +1,33 @@
 # IO class used for sending input to the user via console. Could theoretically
 # be replaced with a fancy GUI, stub IO, etc.
 class BasicIO
-  def initialize(input)
+  def initialize(input, output)
     @input = input
+    @output = output
   end
 
   def invalid_move_msg
-    puts "Invalid move. Try again.\n"
+    @output.puts "Invalid move. Try again.\n"
   end
 
   def display_board(board)
-    puts "\n" * 100
-    puts board
-    puts "\n"
+    @output.puts "\n" * 100
+    @output.puts board
+    @output.puts "\n"
   end
 
   def full_board_msg
-    puts "The board is full. Ending game."
+    @output.puts "The board is full. Ending game."
   end
 
   def winner_msg(player)
-    puts "Player #{player.id} wins!"
+    @output.puts "Player #{player.id} wins!"
   end
 
   # Converts 1-based index input to 0-based index int. On invalid input, this
   # returns -1.
   def prompt(player)
-    puts "Player #{player.id} - please enter a column: "
+    @output.puts "Player #{player.id} - please enter a column: "
     @input.gets.to_i - 1
   end
 end

@@ -5,4 +5,4 @@ require 'src/board.rb'
 require 'src/player.rb'
 require 'src/basic_io.rb'
 
-Connect4.new(BasicIO.new(STDIN)).play
+Connect4.new(BasicIO.new(STDIN, STDOUT)).play

@@ -1,3 +1,5 @@
+# IO class used for sending input to the user via console. Could theoretically
+# be replaced with a fancy GUI, stub IO, etc.
 class StdIO
   def initialize(input)
     @input = input

@@ -1,4 +1,6 @@
+require './src/board.rb'
 require './src/connect4.rb'
+require './src/player.rb'
 
 describe Connect4 do
 

@@ -2,7 +2,7 @@ run:
 	bin/connect4
 
 test:
-	rspec --color spec/connect4_spec.rb
+	rspec --color --pattern *.rb spec/
 
 test_verbose:
-	rspec --color --format documentation spec/connect4_spec.rb
+	rspec --color --format documentation --pattern *.rb spec/

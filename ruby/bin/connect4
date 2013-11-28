@@ -1,0 +1,5 @@
+#!/usr/bin/ruby
+
+require 'src/connect4.rb'
+
+Connect4.new(StdIO.new).play

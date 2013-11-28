@@ -40,4 +40,53 @@ class Board
 
     content + vertical_spacing + labels
   end
+
+  def four_in_row_color
+    color = nil
+    @items.each_index do |i|
+      @items[i].each_index do |j|
+        if @items[i][j] != Connect4::EMPTY
+          if four_right?(i, j) || four_down?(i, j) || four_diag_down?(i, j) || four_diag_up?(i, j)
+            color = @items[i][j]
+          end
+        end
+      end
+    end
+    color
+  end
+
+  private
+
+  def four_consecutive?(i, j, delta_i, delta_j)
+    base = @items[i][j]
+
+    elems = (1..3).map do |k|
+      row = @items[i + k * delta_i]
+      if row
+        row[j + k * delta_j]
+      else
+        nil
+      end
+    end
+
+    elems.all? do |e|
+      e == base
+    end
+  end
+
+  def four_right?(i, j)
+    four_consecutive?(i, j, 0, 1)
+  end
+
+  def four_down?(i, j)
+    four_consecutive?(i, j, 1, 0)
+  end
+
+  def four_diag_up?(i, j)
+    four_consecutive?(i, j, -1, 1)
+  end
+
+  def four_diag_down?(i, j)
+    four_consecutive?(i, j, 1, 1)
+  end
 end

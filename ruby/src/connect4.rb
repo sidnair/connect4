@@ -61,52 +61,11 @@ class Connect4
   end
 
   def get_winner
-    winner = nil
-    @board.items.each_index do |i|
-      @board.items[i].each_index do |j|
-        if @board.items[i][j] != EMPTY
-          if four_right(i, j) || four_down(i, j) || four_diag_down(i, j) || four_diag_up(i, j)
-            winner = get_player_by_color(@board.items[i][j])
-          end
-        end
-      end
+    color = @board.four_in_row_color
+    if color
+      get_player_by_color(color)
+    else
+      nil
     end
-
-    winner
-  end
-
-  private
-
-  def four_consecutive(i, j, delta_i, delta_j)
-    base = @board.items[i][j]
-
-    elems = (1..3).map do |k|
-      row = @board.items[i + k * delta_i]
-      if row
-        row[j + k * delta_j]
-      else
-        nil
-      end
-    end
-
-    elems.all? do |e|
-      e == base
-    end
-  end
-
-  def four_right(i, j)
-    four_consecutive(i, j, 0, 1)
-  end
-
-  def four_down(i, j)
-    four_consecutive(i, j, 1, 0)
-  end
-
-  def four_diag_up(i, j)
-    four_consecutive(i, j, -1, 1)
-  end
-
-  def four_diag_down(i, j)
-    four_consecutive(i, j, 1, 1)
   end
 end

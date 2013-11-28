@@ -1,11 +1,11 @@
 require './src/connect4.rb'
 require './src/player.rb'
-require './src/std_io.rb'
+require './src/basic_io.rb'
 
-describe StdIO do
+describe BasicIO do
   before(:each) do
     @stdin = StringIO.new
-    @io = StdIO.new(@stdin)
+    @io = BasicIO.new(@stdin)
     @player = (Player.new(0, Connect4::RED))
   end
 

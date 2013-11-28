@@ -3,6 +3,6 @@
 require 'src/connect4.rb'
 require 'src/board.rb'
 require 'src/player.rb'
-require 'src/std_io.rb'
+require 'src/basic_io.rb'
 
-Connect4.new(StdIO.new(STDIN)).play
+Connect4.new(BasicIO.new(STDIN)).play

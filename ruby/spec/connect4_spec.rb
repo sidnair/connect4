@@ -1,11 +1,11 @@
-require './src/board.rb'
-require './src/connect4.rb'
-require './src/player.rb'
+require_relative '../src/board.rb'
+require_relative '../src/connect4.rb'
+require_relative '../src/player.rb'
 
 describe Connect4 do
 
   before(:each) do
-    @io = mock("io")
+    @io = double("io")
     @game = Connect4.new(@io)
   end
 

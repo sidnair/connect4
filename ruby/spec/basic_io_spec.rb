@@ -1,6 +1,6 @@
-require './src/connect4.rb'
-require './src/player.rb'
-require './src/basic_io.rb'
+require_relative '../src/connect4.rb'
+require_relative '../src/player.rb'
+require_relative '../src/basic_io.rb'
 
 describe BasicIO do
   before(:each) do
